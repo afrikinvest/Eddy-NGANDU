@@ -2,281 +2,105 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TECK COMPANY - PORTAIL INVESTISSEUR</title>
-    <!-- Importation d'icônes professionnelles -->
-    <link href="https://cloudflare.com" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0b0e11;
-            color: #eaecef;
-            height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Écran de verrouillage */
-        #lock-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            padding: 30px;
-            background: radial-gradient(circle at top, #1e2329 0%, #0b0e11 100%);
-        }
-
-        .brand-header { text-align: center; margin-bottom: 40px; }
-        .brand-header i { font-size: 50px; color: #f0b90b; margin-bottom: 10px; }
-        .brand-header h1 { margin: 0; font-size: 24px; letter-spacing: 2px; color: #fff; }
-
-        .login-card {
-            background: #1e2329;
-            width: 100%;
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid #32383e;
-        }
-
-        .input-box {
-            background: #2b3139;
-            border: 1px solid #474d57;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .input-box input {
-            background: transparent;
-            border: none;
-            color: white;
-            width: 100%;
-            margin-left: 10px;
-            font-size: 16px;
-            outline: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(90deg, #f0b90b 0%, #f8d33a 100%);
-            color: #181a20;
-            border: none;
-            width: 100%;
-            padding: 16px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        /* Tableau de Bord Mobile */
-        #dashboard { display: none; padding: 15px; }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 5px;
-            margin-bottom: 20px;
-        }
-
-        .status-pill {
-            background: rgba(240, 185, 11, 0.1);
-            color: #f0b90b;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            border: 1px solid #f0b90b;
-        }
-
-        .user-welcome { margin-bottom: 20px; }
-        .user-welcome h2 { margin: 0; font-size: 22px; }
-        .user-welcome p { color: #848e9c; margin: 5px 0; }
-
-        .balance-card {
-            background: linear-gradient(135deg, #2b3139 0%, #1e2329 100%);
-            border-radius: 16px;
-            padding: 20px;
-            border-left: 4px solid #f0b90b;
-            margin-bottom: 20px;
-        }
-
-        .data-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 14px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 8px;
-        }
-
-        .data-row span:first-child { color: #848e9c; }
-
-        .investment-summary {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .sum-box {
-            background: #1e2329;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .sum-box .label { font-size: 11px; color: #848e9c; display: block; margin-bottom: 5px; }
-        .sum-box .value { font-size: 18px; font-weight: bold; color: #02c076; }
-
-        .payment-action {
-            background: #1e2329;
-            border-radius: 16px;
-            padding: 20px;
-            border: 1px solid #f0b90b;
-        }
-
-        .payment-action h3 { margin-top: 0; color: #f0b90b; font-size: 16px; display: flex; align-items: center; gap: 10px; }
-        
-        .bank-details {
-            background: #0b0e11;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border: 1px dashed #474d57;
-        }
-
-        .bank-details p { margin: 8px 0; font-family: monospace; font-size: 14px; }
-        .bank-details strong { color: #fff; }
-
-        .wa-btn {
-            background: #25d366;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-
-        .security-footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 11px;
-            color: #474d57;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail d'Inscription et de Paiement - Projet Académique</title>
+    <!-- Liaison avec le fichier de styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- SECTION CONNEXION -->
-    <div id="lock-screen">
-        <div class="brand-header">
-            <i class="fas fa-shield-halved"></i>
-            <h1>TECK COMPANY</h1>
-            <p style="color: #848e9c; font-size: 13px;">Secure Investment Protocol</p>
+<div class="payment-container">
+    <h2>Formulaire d'Inscription</h2>
+    
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="fullName">Nom complet</label>
+            <input type="text" id="fullName" placeholder="Ex: Jean Dupont" required>
         </div>
 
-        <div class="login-card">
-            <p style="text-align: center; margin-top: 0; font-weight: bold;">CONNEXION CLIENT</p>
-            <div class="input-box">
-                <i class="fas fa-lock" style="color: #f0b90b;"></i>
-                <input type="password" id="passField" placeholder="Mot de passe confidentiel" autocomplete="off">
+        <div class="form-group">
+            <label for="country">Pays de résidence</label>
+            <select id="country" required>
+                <option value="">Choisissez un pays</option>
+                <option value="ML">Mali</option>
+                <option value="HT">Haïti</option>
+                <option value="MG">Madagascar</option>
+                <option value="ZA">Afrique du Sud</option>
+                <option value="GH">Ghana</option>
+                <option value="ZM">Zambie</option>
+                <option value="UG">Uganda</option>
+                <option value="CF">Centrafrique</option>
+                <option value="KM">Comores</option>
+                <option value="BI">Burundi</option>
+                <option value="NE">Niger</option>
+                <option value="CG">Congo Brazzaville</option>
+                <option value="CD">RDC (République Démocratique du Congo)</option>
+                <option value="TD">Tchad</option>
+                <option value="GN">Guinée Conakry</option>
+                <option value="CI">Côte d'Ivoire</option>
+                <option value="SN">Sénégal</option>
+                <option value="BF">Burkina Faso</option>
+                <option value="BJ">Bénin</option>
+                <option value="TZ">Tanzanie</option>
+                <option value="MA">Maroc</option>
+                <option value="AO">Angola</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="operator">Mode de paiement préféré</label>
+            <select id="operator" required disabled>
+                <option value="">Sélectionnez d'abord un pays</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Numéro de téléphone / Compte de paiement</label>
+            <input type="tel" id="phone" placeholder="Numéro du compte" required disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Montant du versement</label>
+            <div class="amount-input-container">
+                <input type="number" id="amount" min="1" placeholder="Entrez le montant" required>
+                <span id="currencyLabel" class="currency-badge">---</span>
             </div>
-            <button class="btn-primary" onclick="unlock()">DÉVERROUILLER LE TABLEAU</button>
-            <p id="msg" style="text-align: center; color: #f6465d; font-size: 12px; display: none; margin-top: 15px;">Accès refusé : Mot de passe incorrect.</p>
         </div>
-        
-        <div style="margin-top: 20px; font-size: 10px; color: #474d57;">
-            <i class="fas fa-user-shield"></i> Cryptage de bout en bout actif
-        </div>
+
+        <button type="submit" id="submitBtn">S'inscrire</button>
+    </form>
+</div>
+
+<!-- Conteneur dynamique pour le récapitulatif -->
+<div id="summaryCard" class="summary-container">
+    <h2>Récapitulatif des Coordonnées</h2>
+    <div class="summary-item">
+        <span class="summary-label">Nom de l'utilisateur :</span>
+        <span id="recName" class="summary-value">---</span>
     </div>
-
-    <!-- SECTION TABLEAU DE BORD -->
-    <div id="dashboard">
-        <div class="top-bar">
-            <div style="font-weight: bold; color: #f0b90b;">TECK DASHBOARD</div>
-            <div class="status-pill">● COMPTE ACTIF</div>
-        </div>
-
-        <div class="user-welcome">
-            <h2>Bonjour, Jaydan</h2>
-            <p>Région : République Démocratique du Congo (RDC)</p>
-        </div>
-
-        <div class="balance-card">
-            <p style="margin-top:0; font-size: 12px; color: #848e9c;">DÉTAILS DU COMPTE</p>
-            <div class="data-row">
-                <span>Titulaire</span>
-                <span>Eddy NGANDU</span>
-            </div>
-            <div class="data-row">
-                <span>WhatsApp</span>
-                <span>+243 810430143</span>
-            </div>
-            <div class="data-row">
-                <span>ID Transaction</span>
-                <span>TK-81043-942</span>
-            </div>
-        </div>
-
-        <div class="investment-summary">
-            <div class="sum-box">
-                <span class="label">INVESTISSEMENT</span>
-                <span class="value">50 $</span>
-            </div>
-            <div class="sum-box">
-                <span class="label">PROFIT ATTENDU</span>
-                <span class="value">450 $</span>
-            </div>
-        </div>
-
-        <div class="payment-action">
-            <h3><i class="fas fa-university"></i> FINALISER L'INVESTISSEMENT</h3>
-            <p style="font-size: 13px; line-height: 1.4;">Votre compte a été créé avec succès. Pour lancer le protocole de gain et recevoir vos <strong>450$</strong>, veuillez effectuer le dépôt immédiatement :</p>
-            
-            <div class="bank-details">
-                <p>Mode : <strong>MOBILE MONEY</strong></p>
-                <p>Nom : <strong>EDDY NGANDU</strong></p>
-                <p>Numéro : <strong>243 810430143</strong></p>
-            </div>
-
-            <p style="font-size: 11px; color: #848e9c; text-align: center;">Une fois le transfert effectué, cliquez ci-dessous pour activer votre cycle.</p>
-            
-            <a href="https://wa.me/237689964053" class="wa-btn">
-                <i class="fab fa-whatsapp"></i> ENVOYER LA PREUVE (50$)
-            </a>
-        </div>
-
-        <div class="security-footer">
-            <p><i class="fas fa-lock"></i> Système de sécurité TECK COMPANY certifié v2.4</p>
-            <p>© 2024 Teck Company - Tous droits réservés</p>
-        </div>
+    <div class="summary-item">
+        <span class="summary-label">Pays sélectionné :</span>
+        <span id="recCountry" class="summary-value">---</span>
     </div>
+    <div class="summary-item">
+        <span class="summary-label">Mode de paiement choisi :</span>
+        <span id="recOperator" class="summary-value">---</span>
+    </div>
+    <div class="summary-item">
+        <span class="summary-label">Numéro de compte associé :</span>
+        <span id="recPhone" class="summary-value">---</span>
+    </div>
+    <div class="summary-item">
+        <span class="summary-label">Montant indiqué :</span>
+        <span id="recAmount" class="summary-value">---</span>
+    </div>
+    <div class="summary-item">
+        <span class="summary-label">Statut de validation :</span>
+        <span class="summary-status">Formulaire validé côté client</span>
+    </div>
+</div>
 
-    <script>
-        function unlock() {
-            const p = document.getElementById('passField').value;
-            if(p === "Ed942720") {
-                document.getElementById('lock-screen').style.display = 'none';
-                document.getElementById('dashboard').style.display = 'block';
-                // Vibration sur mobile pour l'effet
-                if (window.navigator.vibrate) { window.navigator.vibrate(50); }
-            } else {
-                document.getElementById('msg').style.display = 'block';
-                document.getElementById('passField').value = "";
-            }
-        }
-    </script>
+    <!-- Liaison avec le fichier de script logique -->
+    <script src="script.js"></script>
 </body>
 </html>
