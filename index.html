@@ -3,104 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portail d'Inscription et de Paiement - Projet Académique</title>
-    <!-- Liaison avec le fichier de styles -->
+    <title>Portail d'Inscription - Teck Compagnie</title>
+    <!-- Liaison avec le fichier de styles (Partie 2) -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="payment-container">
-    <h2>Formulaire d'Inscription</h2>
-    
-    <form id="registrationForm">
-        <div class="form-group">
-            <label for="fullName">Nom complet</label>
-            <input type="text" id="fullName" placeholder="Ex: Jean Dupont" required>
+    <!-- Conteneur principal du formulaire de l'entreprise -->
+    <div class="payment-container">
+        <!-- Logo textuel modélisé pour l'entreprise -->
+        <div class="brand-header">
+            <span class="brand-logo">TC</span>
+            <h1 class="brand-name">Teck Compagnie</h1>
         </div>
-
-        <div class="form-group">
-            <label for="country">Pays de résidence</label>
-            <select id="country" required>
-                <option value="">Choisissez un pays</option>
-                <option value="ML">Mali</option>
-                <option value="HT">Haïti</option>
-                <option value="MG">Madagascar</option>
-                <option value="ZA">Afrique du Sud</option>
-                <option value="GH">Ghana</option>
-                <option value="ZM">Zambie</option>
-                <option value="UG">Uganda</option>
-                <option value="CF">Centrafrique</option>
-                <option value="KM">Comores</option>
-                <option value="BI">Burundi</option>
-                <option value="NE">Niger</option>
-                <option value="CG">Congo Brazzaville</option>
-                <option value="CD">RDC (République Démocratique du Congo)</option>
-                <option value="TD">Tchad</option>
-                <option value="GN">Guinée Conakry</option>
-                <option value="CI">Côte d'Ivoire</option>
-                <option value="SN">Sénégal</option>
-                <option value="BF">Burkina Faso</option>
-                <option value="BJ">Bénin</option>
-                <option value="TZ">Tanzanie</option>
-                <option value="MA">Maroc</option>
-                <option value="AO">Angola</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="operator">Mode de paiement préféré</label>
-            <select id="operator" required disabled>
-                <option value="">Sélectionnez d'abord un pays</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="phone">Numéro de téléphone / Compte de paiement</label>
-            <input type="tel" id="phone" placeholder="Numéro du compte" required disabled>
-        </div>
-
-        <div class="form-group">
-            <label for="amount">Montant du versement</label>
-            <div class="amount-input-container">
-                <input type="number" id="amount" min="1" placeholder="Entrez le montant" required>
-                <span id="currencyLabel" class="currency-badge">---</span>
+        
+        <p class="brand-subtitle">Formulaire officiel d'inscription et de facturation</p>
+        
+        <form id="registrationForm">
+            <!-- Informations Client -->
+            <div class="form-group">
+                <label for="fullName">Nom complet de l'adhérent</label>
+                <input type="text" id="fullName" placeholder="Ex: Jean Dupont" required>
             </div>
+
+            <!-- Sélection Géographique (Déclenche le script) -->
+            <div class="form-group">
+                <label for="country">Pays de résidence</label>
+                <select id="country" required>
+                    <option value="">-- Choisissez votre pays --</option>
+                    <option value="ML">Mali</option>
+                    <option value="HT">Haïti</option>
+                    <option value="MG">Madagascar</option>
+                    <option value="ZA">Afrique du Sud</option>
+                    <option value="GH">Ghana</option>
+                    <option value="ZM">Zambie</option>
+                    <option value="UG">Uganda</option>
+                    <option value="CF">Centrafrique</option>
+                    <option value="KM">Comores</option>
+                    <option value="BI">Burundi</option>
+                    <option value="NE">Niger</option>
+                    <option value="CG">Congo Brazzaville</option>
+                    <option value="CD">RDC (République Démocratique du Congo)</option>
+                    <option value="TD">Tchad</option>
+                    <option value="GN">Guinée Conakry</option>
+                    <option value="CI">Côte d'Ivoire</option>
+                    <option value="SN">Sénégal</option>
+                    <option value="BF">Burkina Faso</option>
+                    <option value="BJ">Bénin</option>
+                    <option value="TZ">Tanzanie</option>
+                    <option value="MA">Maroc</option>
+                    <option value="AO">Angola</option>
+                </select>
+            </div>
+
+            <!-- Mode de paiement (Filtré dynamiquement selon le pays choisi) -->
+            <div class="form-group">
+                <label for="operator">Moyen de paiement disponible</label>
+                <select id="operator" required disabled>
+                    <option value="">Sélectionnez d'abord un pays</option>
+                </select>
+            </div>
+
+            <!-- Coordonnées du compte -->
+            <div class="form-group">
+                <label for="phone">Numéro de téléphone / Compte associé</label>
+                <input type="tel" id="phone" placeholder="Numéro du compte" required disabled>
+            </div>
+
+            <!-- Montant à transférer -->
+            <div class="form-group">
+                <label for="amount">Montant du versement</label>
+                <div class="amount-input-container">
+                    <input type="number" id="amount" min="1" placeholder="Entrez le montant" required>
+                    <!-- Badge de devise mis à jour dynamiquement -->
+                    <span id="currencyLabel" class="currency-badge">---</span>
+                </div>
+            </div>
+
+            <!-- Bouton de soumission officiel -->
+            <button type="submit" id="submitBtn">S'inscrire auprès de Teck Compagnie</button>
+        </form>
+    </div>
+
+    <!-- Conteneur pour le récapitulatif des données (Affiché après soumission) -->
+    <div id="summaryCard" class="summary-container">
+        <h2>Récapitulatif de votre demande</h2>
+        
+        <div class="summary-item">
+            <span class="summary-label">Client :</span>
+            <span id="recName" class="summary-value">---</span>
         </div>
+        <div class="summary-item">
+            <span class="summary-label">Pays enregistré :</span>
+            <span id="recCountry" class="summary-value">---</span>
+        </div>
+        <div class="summary-item">
+            <span class="summary-label">Moyen de paiement validé :</span>
+            <span id="recOperator" class="summary-value">---</span>
+        </div>
+        <div class="summary-item">
+            <span class="summary-label">Identifiant du compte :</span>
+            <span id="recPhone" class="summary-value">---</span>
+        </div>
+        <div class="summary-item">
+            <span class="summary-label">Montant total :</span>
+            <span id="recAmount" class="summary-value">---</span>
+        </div>
+        
+        <div class="summary-footer">
+            <span class="summary-status-badge">Traitement Frontend Réussi</span>
+            <p class="brand-copyright">© Teck Compagnie - Validation académique</p>
+        </div>
+    </div>
 
-        <button type="submit" id="submitBtn">S'inscrire</button>
-    </form>
-</div>
-
-<!-- Conteneur dynamique pour le récapitulatif -->
-<div id="summaryCard" class="summary-container">
-    <h2>Récapitulatif des Coordonnées</h2>
-    <div class="summary-item">
-        <span class="summary-label">Nom de l'utilisateur :</span>
-        <span id="recName" class="summary-value">---</span>
-    </div>
-    <div class="summary-item">
-        <span class="summary-label">Pays sélectionné :</span>
-        <span id="recCountry" class="summary-value">---</span>
-    </div>
-    <div class="summary-item">
-        <span class="summary-label">Mode de paiement choisi :</span>
-        <span id="recOperator" class="summary-value">---</span>
-    </div>
-    <div class="summary-item">
-        <span class="summary-label">Numéro de compte associé :</span>
-        <span id="recPhone" class="summary-value">---</span>
-    </div>
-    <div class="summary-item">
-        <span class="summary-label">Montant indiqué :</span>
-        <span id="recAmount" class="summary-value">---</span>
-    </div>
-    <div class="summary-item">
-        <span class="summary-label">Statut de validation :</span>
-        <span class="summary-status">Formulaire validé côté client</span>
-    </div>
-</div>
-
-    <!-- Liaison avec le fichier de script logique -->
+    <!-- Liaison avec le fichier de logique JavaScript (Partie 3) -->
     <script src="script.js"></script>
 </body>
 </html>
